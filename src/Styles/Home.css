@@ -1,0 +1,127 @@
+.Home {
+    color: white;
+}
+
+.HomeDiv {
+    display: inline-flex;
+    margin: 0;
+}
+
+.HelloText span {
+    font-family: fantasy;
+    font-size: 50px;
+    margin: 2.5px;
+}
+
+.hitext,
+.professionText {
+    font-size: medium;
+}
+
+.highlight {
+    color: crimson;
+}
+
+.professionText {
+    font-size: larger;
+    color: aquamarine;
+}
+
+.HelloText span:hover {
+    /* color: aquamarine; */
+
+    /* animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    display: inline-block; */
+    background: -webkit-linear-gradient(white 49%, aquamarine 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 1px 0 white, 0 2px 0 aquamarine,
+        0 7px 0 black, 0 8px 0 black,
+        0 11px 0 aquamarine, 0 12px 0 aquamarine;
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+.developerIcon {
+    height: 40px;
+    width: 40px;
+}
+
+.description {
+    color: grey;
+    font-size: small;
+}
+
+.HiImage {
+    height: 500px;
+    width: 500px;
+}
+
+.MyImage {
+    width: 100%;
+    text-align: right;
+}
+
+.MyEyes {
+    height: 8px;
+    width: 8px;
+}
+
+.eyes {
+    position: absolute;
+    top: 36.1%;
+    /* Adjust based on the positioning of the eyes */
+    left: 45%;
+    /* Adjust based on the positioning of the eyes */
+    display: flex;
+    gap: 20px;
+}
+
+.lefteye {
+    width: 7px;
+    height: 7px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.righteye {
+    width: 7px;
+    height: 7px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}

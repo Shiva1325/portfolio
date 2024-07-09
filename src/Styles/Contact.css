@@ -1,0 +1,112 @@
+.submitBtnDiv {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: input-mono-narrow, monospace;
+}
+
+.btn {
+    background-color: black;
+    padding: 1em 2em;
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    transition: background-color 0.3s linear 0.3s;
+    color: white;
+}
+
+.button::after {
+    content: "";
+    display: block;
+    /* border-top: 1px solid aquamarine;
+    border-bottom: 1px solid aquamarine;
+    border-left: 1px solid aquamarine; */
+    border: 1px solid aquamarine;
+    background: none;
+    position: absolute;
+    inset: 0;
+    transition: all 0.3s linear;
+}
+
+.button:hover::after {
+    transform: scaleX(0);
+}
+
+.button:hover {
+    background-color: aquamarine;
+}
+
+label {
+    font-family: input-mono-narrow, monospace;
+    color: white;
+}
+
+.form-group {
+    margin: 20px;
+}
+
+input,
+textarea {
+    min-height: 28px;
+    border-radius: 5px;
+}
+
+.PhoneInputCountry {
+    padding: 5px 5px 5px 5px;
+    border: 1px solid aquamarine;
+    border-radius: 5px;
+}
+
+.PhoneDiv {
+    display: inline-flex;
+}
+
+.PhoneInputCountry {
+    float: left;
+    min-width: 50px;
+}
+
+/*To remove button from IE11, thank you Matt */
+select::-ms-expand {
+    display: none;
+}
+
+.PhoneInputCountry:after {
+    content: '>';
+    font: 13px "Consolas", monospace;
+    color: aquamarine;
+    transform: rotate(90deg);
+    right: 7px;
+    position: absolute;
+    pointer-events: none;
+}
+
+.PhoneInputCountry select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    float: right;
+    color: aquamarine;
+    background-color: #ffffff;
+    background-image: none;
+    -ms-word-break: normal;
+    word-break: normal;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 75vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
