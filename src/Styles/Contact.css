@@ -16,15 +16,13 @@
     letter-spacing: 2px;
     position: relative;
     transition: background-color 0.3s linear 0.3s;
+    transition: color 0.3s;
     color: white;
 }
 
 .button::after {
     content: "";
     display: block;
-    /* border-top: 1px solid aquamarine;
-    border-bottom: 1px solid aquamarine;
-    border-left: 1px solid aquamarine; */
     border: 1px solid aquamarine;
     background: none;
     position: absolute;
@@ -38,6 +36,8 @@
 
 .button:hover {
     background-color: aquamarine;
+    color: black;
+    transition: color 1.5s ease;
 }
 
 label {
@@ -70,7 +70,6 @@ textarea {
     min-width: 50px;
 }
 
-/*To remove button from IE11, thank you Matt */
 select::-ms-expand {
     display: none;
 }
@@ -101,12 +100,24 @@ select::-ms-expand {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 75vh;
+    height: 40%;
+    width: 100%;
+    background-color: rgb(49, 49, 49);
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 74vh;
+}
+
+.card {
+    width: 40%;
+
+}
+
+.card:hover {
+    transition-duration: 0.5s;
+    box-shadow: 0 1px 10px 1px aquamarine;
 }

@@ -11,7 +11,7 @@ export class Footer extends Component {
     return (
       <div className='footer'>
         <div className='socialMedia'>
-            <InstagramIcon />
+            <InstagramIcon sx={{ "& :hover": { color: "blue" } }} />
             <FacebookIcon />
             <LinkedInIcon />
             <GitHubIcon />

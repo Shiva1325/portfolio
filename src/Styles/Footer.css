@@ -21,3 +21,7 @@
 .footer p {
     color: black;
 }
+
+.MuiSvgIcon-root:hover {
+    color: aquamarine;
+}

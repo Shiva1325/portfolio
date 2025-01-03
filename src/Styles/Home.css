@@ -5,6 +5,7 @@
 .HomeDiv {
     display: inline-flex;
     margin: 0;
+    height: 100%;
 }
 
 .HelloText span {
@@ -85,43 +86,4 @@
 .MyImage {
     width: 100%;
     text-align: right;
-}
-
-.MyEyes {
-    height: 8px;
-    width: 8px;
-}
-
-.eyes {
-    position: absolute;
-    top: 36.1%;
-    /* Adjust based on the positioning of the eyes */
-    left: 45%;
-    /* Adjust based on the positioning of the eyes */
-    display: flex;
-    gap: 20px;
-}
-
-.lefteye {
-    width: 7px;
-    height: 7px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.righteye {
-    width: 7px;
-    height: 7px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
 }
