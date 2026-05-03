@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  cursor: none;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #050A0E;
+  color: #E8F4FD;
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #050A0E; }
+::-webkit-scrollbar-thumb { background: #818CF844; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #818CF888; }
+
+/* Selection */
+::selection { background: rgba(129, 140, 248, 0.2); color: #818CF8; }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Dot grid background */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(129,140,248,0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glass card */
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Neon text */
+.neon-text {
+  color: #818CF8;
+  text-shadow: 0 0 10px rgba(129,140,248,0.5), 0 0 30px rgba(129,140,248,0.2);
+}
+
+.neon-text-purple {
+  color: #F472B6;
+  text-shadow: 0 0 10px rgba(244,114,182,0.5), 0 0 30px rgba(244,114,182,0.2);
+}
+
+/* Neon border glow */
+.neon-border {
+  border: 1px solid rgba(129,140,248,0.3);
+  box-shadow: 0 0 20px rgba(129,140,248,0.1), inset 0 0 20px rgba(129,140,248,0.03);
+}
+
+/* Hex clip */
+.hex-clip {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Scan line animation */
+@keyframes scanline {
+  0% { clip-path: inset(0 0 100% 0); }
+  100% { clip-path: inset(0 0 0% 0); }
+}
+
+.scan-reveal {
+  animation: scanline 0.8s cubic-bezier(0.77,0,0.18,1) forwards;
+}
+
+/* Pulse ring */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #818CF8;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #818CF8 0%, #F472B6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading bar animation */
+@keyframes load-progress {
+  0% { width: 0%; }
+  20% { width: 30%; }
+  60% { width: 70%; }
+  90% { width: 92%; }
+  100% { width: 100%; }
+}
+
+.load-bar { animation: load-progress 2.2s cubic-bezier(0.4,0,0.2,1) forwards; }
+
+/* Nebula / smoke drift */
+@keyframes nebula-1 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  25%      { transform: translate(45px,-35px) scale(1.14); }
+  50%      { transform: translate(-25px, 45px) scale(0.9); }
+  75%      { transform: translate(30px, 20px) scale(1.06); }
+}
+@keyframes nebula-2 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%     { transform: translate(-40px, 28px) scale(1.1); }
+  66%     { transform: translate(28px,-40px) scale(0.93); }
+}
+@keyframes nebula-3 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  40%     { transform: translate(22px,-22px) scale(1.18); }
+  80%     { transform: translate(-32px,18px) scale(0.87); }
+}
+/* Smoke wisps — rise, expand, fade */
+@keyframes smoke-rise-1 {
+  0%   { transform: translate(0,0)   scale(1)    rotate(0deg);   opacity: 0.055; }
+  35%  { transform: translate(28px,-60px) scale(1.25) rotate(4deg);  opacity: 0.038; }
+  65%  { transform: translate(-18px,-110px) scale(1.55) rotate(-3deg); opacity: 0.018; }
+  100% { transform: translate(10px,-160px) scale(1.8)  rotate(6deg);  opacity: 0; }
+}
+@keyframes smoke-rise-2 {
+  0%   { transform: translate(0,0)   scale(1)    rotate(0deg);   opacity: 0.05; }
+  40%  { transform: translate(-22px,-70px) scale(1.3)  rotate(-5deg); opacity: 0.03; }
+  70%  { transform: translate(15px,-120px) scale(1.6)  rotate(2deg);  opacity: 0.014; }
+  100% { transform: translate(-8px,-170px) scale(1.9)  rotate(-4deg); opacity: 0; }
+}
+@keyframes smoke-rise-3 {
+  0%   { transform: translate(0,0)   scale(1)    rotate(0deg);   opacity: 0.045; }
+  30%  { transform: translate(18px,-50px)  scale(1.2)  rotate(3deg);  opacity: 0.032; }
+  60%  { transform: translate(-25px,-95px) scale(1.45) rotate(-6deg); opacity: 0.016; }
+  100% { transform: translate(12px,-145px) scale(1.75) rotate(5deg);  opacity: 0; }
+}
+@keyframes smoke-sway {
+  0%,100% { transform: translateX(0) scaleX(1); }
+  50%     { transform: translateX(18px) scaleX(1.08); }
+}
+
+/* Infinite marquee */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-left  { animation: marquee-left  var(--duration, 30s) linear infinite; }
+.marquee-right { animation: marquee-right var(--duration, 30s) linear infinite; }
+.marquee-wrap:hover .marquee-left,
+.marquee-wrap:hover .marquee-right { animation-play-state: paused; }
+
+/* Section padding */
+.section-pad {
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-pad { padding: 8rem 3rem; }
+}
+
+@media (min-width: 1280px) {
+  .section-pad { padding: 10rem 6rem; }
+}
+
+/* CRT scan lines overlay */
+.crt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.07) 3px,
+    rgba(0, 0, 0, 0.07) 4px
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Occasional auto-glitch */
+@keyframes auto-glitch {
+  0%, 88%, 100% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(129,140,248,0.4);
+  }
+  89% { transform: translate(-3px, 1px); text-shadow: -2px 0 #F472B6, 2px 0 #818CF8; }
+  90% { transform: translate(3px, -1px); text-shadow: 2px 0 #F472B6, -2px 0 #818CF8; }
+  91% { transform: translate(-1px, 2px); text-shadow: -2px 0 #818CF8; }
+  92% { transform: translate(0); text-shadow: 0 0 8px rgba(129,140,248,0.4); }
+}
+
+/* Circuit line trace */
+@keyframes trace {
+  from { stroke-dashoffset: 200; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Floating terminal text */
+@keyframes terminal-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

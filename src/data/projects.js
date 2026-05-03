@@ -1,0 +1,40 @@
+export const projects = [
+  {
+    id: 1,
+    title: 'SCI-GSO Website',
+    description: 'Full-stack web platform for the University of Pittsburgh\'s Science Graduate Student Organization, serving 1,200+ users. Built with ReactJS and Node.js with a MySQL backend, featuring event management, member portals, and dynamic content.',
+    tech: ['React', 'Node.js', 'MySQL', 'JavaScript'],
+    category: 'Web',
+    github: 'https://github.com/Shiva1325/sci_gso',
+    live: 'https://sci-gso.netlify.app',
+    featured: true,
+    gradient: 'from-cyan-500 to-blue-600',
+    icon: '🌐',
+  },
+  {
+    id: 2,
+    title: 'MLDeployX',
+    description: 'End-to-end ML model deployment platform on GCP using Docker and Kubernetes. Automates containerization, scaling, and serving of ML models with a REST API gateway, monitoring dashboard, and CI/CD pipeline integration.',
+    tech: ['Python', 'GCP', 'Docker', 'Kubernetes'],
+    category: 'Data',
+    github: 'https://github.com/Shiva1325',
+    live: '#',
+    featured: true,
+    gradient: 'from-purple-500 to-pink-600',
+    icon: '🤖',
+  },
+  {
+    id: 3,
+    title: 'Raft Consensus in Go',
+    description: 'Production-grade Raft distributed consensus implementation in Go using gRPC and Protocol Buffers. Ensures fault-tolerant replicated state machines across multiple Docker nodes with leader election, log replication, and safety guarantees.',
+    tech: ['Go', 'gRPC', 'Docker', 'Distributed Systems'],
+    category: 'Tools',
+    github: 'https://github.com/Shiva1325/Raft_implementation',
+    live: '#',
+    featured: false,
+    gradient: 'from-green-500 to-emerald-600',
+    icon: '💬',
+  },
+]
+
+export const projectCategories = ['All', 'Web', 'Data', 'Tools']
