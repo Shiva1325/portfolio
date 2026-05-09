@@ -82,7 +82,7 @@ export default function Education() {
                       {edu.major}
                     </motion.p>
                   </div>
-                  <p className="text-white/40 font-mono text-xs md:text-sm mt-1.5 truncate">{edu.university} · {edu.location}</p>
+                  <p className="text-white/40 font-mono text-xs md:text-sm mt-1.5 leading-snug">{edu.university} · {edu.location}</p>
                 </div>
               </div>
 
