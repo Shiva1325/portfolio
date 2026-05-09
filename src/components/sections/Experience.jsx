@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { experience } from '../../data/experience'
-import { GoldmanSachsLogo, HexagonLogo, PittLogo, D2SolLogo, SCIGSOLogo } from '../ui/Logos'
+import { GoldmanSachsLogo, HexagonLogo, PittLogo, D2SolLogo, SCIGSOLogo, LevyLabLogo } from '../ui/Logos'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -12,8 +12,9 @@ function CompanyLogo({ company, color }) {
   if (company.includes('Goldman'))    return <GoldmanSachsLogo />
   if (company.includes('Hexagon'))    return <HexagonLogo />
   if (company.includes('SCI'))        return <SCIGSOLogo />
+  if (company.includes('LevyLab'))    return <LevyLabLogo />
   if (company.includes('Pittsburgh')) return <PittLogo />
-  if (company.includes('D2Sol'))      return <D2SolLogo color={color} />
+  if (company.includes('D2Sol'))      return <D2SolLogo />
   const initials = company.split(/[\s—-]+/).slice(0,2).map(w=>w[0]).join('').toUpperCase()
   return (
     <div className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-bold font-mono flex-shrink-0"
