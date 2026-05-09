@@ -4,8 +4,14 @@ import { useInView } from 'react-intersection-observer'
 import VanillaTilt from 'vanilla-tilt'
 import { projects, projectCategories } from '../../data/projects'
 
-// Repos to exclude from the live GitHub feed (already in featured)
-const FEATURED_REPOS = new Set(['sci_gso', 'Raft_implementation', 'MLDeployX', 'portfolio'])
+// Only these repos appear in the live GitHub feed
+const LIVE_REPOS_WHITELIST = new Set([
+  'colloid',
+  'dlrm',
+  'MLPredictionPipeline',
+  'Cassandra_Go',
+  'StreamlitXGBoost',
+])
 
 function ProjectCard({ project, inView, index, onProjectClick }) {
   const tiltRef = useRef(null)
@@ -137,8 +143,8 @@ function LiveGitHubRepos({ inView }) {
       .then(r => r.json())
       .then(data => {
         if (!Array.isArray(data)) return
-        const filtered = data.filter(r => !r.fork && !FEATURED_REPOS.has(r.name))
-        setRepos(filtered.slice(0, 6))
+        const filtered = data.filter(r => !r.fork && LIVE_REPOS_WHITELIST.has(r.name))
+        setRepos(filtered)
         setLastFetched(new Date())
       })
       .catch(() => {})

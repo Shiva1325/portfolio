@@ -200,8 +200,9 @@ export default function Hero({ onUnlock }) {
             data-hover>
             Explore My Work
           </button>
-          <a href={import.meta.env.BASE_URL + 'resume.pdf'}
-            download="Shiva_Patibandla_Resume.pdf"
+          <a href="https://raw.githubusercontent.com/Shiva1325/Resume/main/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
             className="px-7 py-3 rounded-full border border-[#F9731644] text-[#F97316] font-display font-semibold text-sm tracking-wide transition-all duration-200 hover:bg-[#F973160A] hover:border-[#F9731688]"
             data-hover>
             Download Resume
