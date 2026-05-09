@@ -1,7 +1,7 @@
 export const experience = [
   {
     id: 1,
-    title: 'Software Engineer, Analyst',
+    title: 'Software Engineer',
     company: 'Goldman Sachs',
     logoDomain: 'goldmansachs.com',
     location: 'Salt Lake City, UT',
