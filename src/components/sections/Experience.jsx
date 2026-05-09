@@ -91,15 +91,13 @@ export default function Experience({ onUnlock }) {
                     <CompanyLogo company={job.company} color={job.color} />
 
                     <div className="flex-1 min-w-0">
-                      <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-0.5">
-                        <h3 className="text-base md:text-lg font-display font-bold text-white leading-tight">{job.title}</h3>
-                        <div className="flex items-center gap-2 flex-shrink-0">
-                          <span className="text-xs font-mono text-white/30 whitespace-nowrap">{job.duration}</span>
-                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 font-mono whitespace-nowrap">{job.type}</span>
-                        </div>
-                      </div>
-                      <p className="text-sm font-mono mt-0.5 truncate" style={{ color: job.color }}>{job.company}</p>
+                      <h3 className="text-base md:text-lg font-display font-bold text-white leading-tight">{job.title}</h3>
+                      <p className="text-sm font-mono mt-1" style={{ color: job.color }}>{job.company}</p>
                       <p className="text-xs font-mono text-white/30 mt-0.5">{job.location}</p>
+                      <div className="flex items-center gap-2 mt-1 flex-wrap">
+                        <span className="text-xs font-mono text-white/30">{job.duration}</span>
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 font-mono">{job.type}</span>
+                      </div>
                     </div>
                   </div>
 

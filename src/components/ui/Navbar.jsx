@@ -34,7 +34,7 @@ export default function Navbar({ exploredProgress }) {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -70, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-          className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] glass rounded-full px-5 py-2.5 flex items-center gap-1"
+          className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] glass rounded-full px-5 py-2.5 flex items-center gap-1 overflow-hidden"
         >
           {/* Scroll progress bar at top */}
           <div

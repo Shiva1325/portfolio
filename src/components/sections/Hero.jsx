@@ -182,8 +182,8 @@ export default function Hero({ onUnlock }) {
         </motion.div>
 
         {/* Name */}
-        <h1 ref={nameRef} className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-4 leading-none"
-          style={{ perspective: '600px' }}>
+        <h1 ref={nameRef} className="font-display font-bold mb-4 leading-none whitespace-nowrap"
+          style={{ perspective: '600px', fontSize: 'clamp(1.85rem, 9vw, 8rem)' }}>
           {'Shiva Patibandla'.split('').map((c, i) => (
             <span key={i} className={`char inline-block ${c === ' ' ? 'w-4 md:w-6' : ''}`}
               style={{ opacity: 0, display: 'inline-block' }}

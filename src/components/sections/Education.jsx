@@ -4,9 +4,9 @@ import { education } from '../../data/education'
 import { PittLogo, ISMLogo } from '../ui/Logos'
 
 function UniversityLogo({ university }) {
-  if (university.includes('Pittsburgh'))   return <div className="w-14 h-14 flex-shrink-0"><PittLogo /></div>
+  if (university.includes('Pittsburgh'))   return <PittLogo className="w-14 h-14" />
   if (university.includes('IIT') || university.includes('ISM') || university.includes('Indian'))
-    return <div className="w-14 h-14 flex-shrink-0"><ISMLogo /></div>
+    return <ISMLogo className="w-14 h-14" />
   const initials = university.split(/[\s()]+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()
   return (
     <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-base font-bold font-mono flex-shrink-0 bg-[#F9731614] border border-[#F9731633] text-[#F97316]">
