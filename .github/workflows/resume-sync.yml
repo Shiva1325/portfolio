@@ -1,17 +1,12 @@
 name: Resume Sync
 
-# Triggers when you push your Overleaf resume to GitHub via Overleaf's GitHub sync.
-# Setup: In Overleaf → Menu → GitHub → Sync → point to a repo named "resume-latex".
-# Every time you push from Overleaf, this workflow copies the compiled PDF here.
+# Triggers when you push to your Shiva1325/Resume repo via repository_dispatch,
+# or run manually from the Actions tab.
 
 on:
   repository_dispatch:
     types: [resume-updated]
   workflow_dispatch:
-    inputs:
-      pdf_url:
-        description: 'Direct URL to the compiled PDF (optional)'
-        required: false
 
 permissions:
   contents: write
@@ -24,20 +19,20 @@ jobs:
       - name: Checkout portfolio source
         uses: actions/checkout@v4
 
-      - name: Download latest resume PDF from Overleaf
+      - name: Download latest resume PDF from Resume repo
         run: |
           curl -L \
-            "https://www.overleaf.com/download/project/63b20a7df9ce7bcb5887cb22/build/latest/output/output.pdf?token=pfjrmdcnrqtm" \
+            "https://github.com/Shiva1325/Resume/raw/main/resume.pdf" \
             -o public/resume.pdf \
             --fail \
-            || echo "Overleaf download failed — keeping existing resume.pdf"
+            || echo "Download failed — keeping existing resume.pdf"
 
       - name: Commit updated resume
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/resume.pdf
-          git diff --staged --quiet || git commit -m "chore: sync resume from Overleaf [skip ci]"
+          git diff --staged --quiet || git commit -m "chore: sync resume from Resume repo [skip ci]"
           git push
 
       - name: Setup Node.js
