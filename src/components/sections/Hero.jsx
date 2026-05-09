@@ -178,7 +178,7 @@ export default function Hero({ onUnlock }) {
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F973160A] border border-[#F9731633] mb-5">
           <span className="w-1.5 h-1.5 rounded-full bg-[#00FF88] animate-pulse" />
-          <span className="text-xs font-mono text-[#F9731688] tracking-widest">ANALYST SOFTWARE ENGINEER @ GOLDMAN SACHS</span>
+          <span className="text-xs font-mono text-[#F9731688] tracking-widest">SOFTWARE ENGINEER @ GOLDMAN SACHS</span>
         </motion.div>
 
         {/* Name */}

@@ -25,7 +25,7 @@ export const education = [
     university: 'Indian Institute of Technology (ISM) Dhanbad',
     logoDomain: 'iitism.ac.in',
     location: 'Dhanbad, India',
-    duration: '2015 — 2019',
+    duration: 'Jul 2015 — May 2019',
     gpa: null,
     honors: ['Top 0.3% in IIT-JEE 2015 among 1.5M candidates'],
     courses: [
