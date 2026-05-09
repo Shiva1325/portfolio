@@ -4,17 +4,14 @@ export function GoldmanSachsLogo({ className = 'w-11 h-11' }) {
   return (
     <div className={`${className} rounded-xl overflow-hidden flex-shrink-0`}>
       <svg viewBox="0 0 44 44" width="100%" height="100%">
-        <rect width="44" height="44" fill="#7399C6" />
+        <rect width="44" height="44" fill="#003366" />
+        {/* Thin gold accent bar at top */}
+        <rect x="0" y="0" width="44" height="3" fill="#C9A84C" />
         {/* GS monogram */}
-        <text x="22" y="20" textAnchor="middle"
-          fill="#fff" fontSize="11" fontWeight="700" fontFamily="Georgia,serif" letterSpacing="1">
-          GOLDMAN
+        <text x="22" y="30" textAnchor="middle"
+          fill="#ffffff" fontSize="22" fontWeight="700" fontFamily="Georgia,serif" letterSpacing="1">
+          GS
         </text>
-        <text x="22" y="32" textAnchor="middle"
-          fill="#fff" fontSize="11" fontWeight="700" fontFamily="Georgia,serif" letterSpacing="1">
-          SACHS
-        </text>
-        <rect x="8" y="35" width="28" height="1" fill="#ffffff66" />
       </svg>
     </div>
   )
