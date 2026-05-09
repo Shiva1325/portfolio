@@ -108,7 +108,7 @@ export default function Contact({ onUnlock }) {
                   href={s.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-11 h-11 glass rounded-xl flex items-center justify-center text-white/40 hover:text-[#F97316] hover:border-[#F9731644] transition-all duration-200 hover:scale-110 neon-border"
+                  className="w-11 h-11 glass rounded-xl flex items-center justify-center text-white/40 hover:text-[#F97316] hover:border-[#F9731644] transition-[color,border-color,transform] duration-200 hover:scale-110 neon-border"
                   title={s.label}
                   data-hover
                 >

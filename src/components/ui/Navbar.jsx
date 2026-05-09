@@ -48,7 +48,7 @@ export default function Navbar({ exploredProgress }) {
               <button
                 key={l.id}
                 onClick={() => scrollTo(l.id)}
-                className={`px-3 py-1 rounded-full text-sm font-display transition-all duration-200 ${
+                className={`px-3 py-1 rounded-full text-sm font-display transition-colors duration-200 ${
                   activeSection === l.id
                     ? 'bg-[#F9731614] text-[#F97316]'
                     : 'text-white/50 hover:text-white/80'
