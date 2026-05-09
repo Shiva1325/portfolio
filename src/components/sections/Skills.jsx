@@ -139,11 +139,27 @@ function SkillSphere({ activeCategory }) {
   }
   const onMouseUp = () => { drag.current = null }
 
+  const onTouchStart = (e) => {
+    const t = e.touches[0]
+    drag.current = { x: t.clientX, y: t.clientY, ry: angleY.current, rx: angleX.current }
+  }
+  const onTouchMove = (e) => {
+    if (!drag.current) return
+    const t = e.touches[0]
+    const dx = (t.clientX - drag.current.x) * 0.007
+    const dy = (t.clientY - drag.current.y) * 0.007
+    angleY.current = drag.current.ry + dx
+    angleX.current = Math.max(-0.7, Math.min(0.7, drag.current.rx + dy))
+    velY.current   = dx * 0.22
+  }
+  const onTouchEnd = () => { drag.current = null }
+
   return (
     <div
       className="absolute inset-0 select-none cursor-grab active:cursor-grabbing"
       onMouseDown={onMouseDown} onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}   onMouseLeave={onMouseUp}
+      onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}
     >
       {/* Faint sphere ring */}
       <div className="absolute rounded-full border border-white/[0.05] pointer-events-none"
@@ -239,7 +255,7 @@ export default function Skills({ onUnlock }) {
                 </div>
               ))}
             </div>
-            <p className="text-[9px] font-mono text-white/20 tracking-[0.18em] hidden sm:block">DRAG TO ROTATE</p>
+            <p className="text-[9px] font-mono text-white/20 tracking-[0.18em]">DRAG TO ROTATE</p>
           </div>
         </motion.div>
       </div>
