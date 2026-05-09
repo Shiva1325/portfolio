@@ -69,7 +69,7 @@ export function ISMLogo() {
   )
 }
 
-export function D2SolLogo({ color = '#F472B6' }) {
+export function D2SolLogo({ color = '#22D3EE' }) {
   return (
     <svg viewBox="0 0 44 44" width="44" height="44" className="flex-shrink-0">
       <rect width="44" height="44" rx="10" fill={`${color}18`} />

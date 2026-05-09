@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import emailjs from '@emailjs/browser'
 
 const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/Shiva1325', icon: (
@@ -26,16 +27,44 @@ const socialLinks = [
 ]
 
 export default function Contact({ onUnlock }) {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState('idle')
+  const [form, setForm]       = useState({ name: '', email: '', phone: '', message: '' })
+  const [honeypot, setHoneypot] = useState('')
+  const [status, setStatus]   = useState('idle')
   const { ref, inView } = useInView({ threshold: 0.25, triggerOnce: true })
 
   useEffect(() => { if (inView) onUnlock('contact') }, [inView, onUnlock])
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    // Honeypot — bots fill this, humans don't
+    if (honeypot) return
+
+    // Rate limit — one submission per 60 seconds
+    const lastSent = parseInt(localStorage.getItem('_contact_last') || '0', 10)
+    if (Date.now() - lastSent < 60_000) {
+      setStatus('rate')
+      return
+    }
+
     setStatus('loading')
-    setTimeout(() => setStatus('success'), 1500)
+    localStorage.setItem('_contact_last', Date.now().toString())
+
+    const serviceId  = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+    emailjs.send(
+      serviceId,
+      templateId,
+      { from_name: form.name, reply_to: form.email, message: form.message, phone: form.phone || 'N/A' },
+      { publicKey }
+    )
+      .then(() => {
+        setStatus('success')
+        setForm({ name: '', email: '', phone: '', message: '' })
+      })
+      .catch(() => setStatus('error'))
   }
 
   return (
@@ -47,8 +76,8 @@ export default function Contact({ onUnlock }) {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           className="flex items-center gap-3 mb-12"
         >
-          <div className="w-8 h-px bg-[#818CF8]" />
-          <span className="text-xs font-mono tracking-widest text-[#818CF888] uppercase">Contact</span>
+          <div className="w-8 h-px bg-[#F97316]" />
+          <span className="text-xs font-mono tracking-widest text-[#F9731688] uppercase">Contact</span>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -67,8 +96,8 @@ export default function Contact({ onUnlock }) {
 
             {/* Status */}
             <div className="flex items-center gap-2 mb-8">
-              <div className="w-2 h-2 rounded-full bg-[#818CF8] animate-pulse" />
-              <span className="text-sm font-mono text-[#818CF888]">Salt Lake City, UT · Open to connect</span>
+              <div className="w-2 h-2 rounded-full bg-[#F97316] animate-pulse" />
+              <span className="text-sm font-mono text-[#F9731688]">Salt Lake City, UT · Open to connect</span>
             </div>
 
             {/* Social links */}
@@ -79,7 +108,7 @@ export default function Contact({ onUnlock }) {
                   href={s.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-11 h-11 glass rounded-xl flex items-center justify-center text-white/40 hover:text-[#818CF8] hover:border-[#818CF844] transition-all duration-200 hover:scale-110 neon-border"
+                  className="w-11 h-11 glass rounded-xl flex items-center justify-center text-white/40 hover:text-[#F97316] hover:border-[#F9731644] transition-all duration-200 hover:scale-110 neon-border"
                   title={s.label}
                   data-hover
                 >
@@ -97,10 +126,21 @@ export default function Contact({ onUnlock }) {
             onSubmit={handleSubmit}
             className="space-y-4"
           >
-            {['name', 'email', 'message'].map(field => (
+            {/* Honeypot — hidden from humans, bots fill it */}
+            <input
+              type="text"
+              value={honeypot}
+              onChange={e => setHoneypot(e.target.value)}
+              style={{ display: 'none' }}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+            {['name', 'email', 'phone', 'message'].map(field => (
               <div key={field} className="relative group">
-                <label className="block text-xs font-mono text-white/30 uppercase tracking-widest mb-1.5">
+                <label className="block text-xs font-mono text-white/30 uppercase tracking-widest mb-1.5 flex items-center gap-2">
                   {field}
+                  {field === 'phone' && <span className="text-white/20 normal-case tracking-normal">optional</span>}
                 </label>
                 {field === 'message' ? (
                   <textarea
@@ -108,17 +148,17 @@ export default function Contact({ onUnlock }) {
                     rows={4}
                     value={form[field]}
                     onChange={e => setForm(f => ({ ...f, [field]: e.target.value }))}
-                    className="w-full bg-transparent glass rounded-xl px-4 py-3 text-sm text-white/80 font-mono resize-none outline-none focus:border-[#818CF866] transition-colors border border-white/5"
+                    className="w-full bg-transparent glass rounded-xl px-4 py-3 text-sm text-white/80 font-mono resize-none outline-none focus:border-[#F9731666] transition-colors border border-white/5"
                     placeholder={`Your ${field}...`}
                   />
                 ) : (
                   <input
-                    type={field === 'email' ? 'email' : 'text'}
-                    required
+                    type={field === 'email' ? 'email' : field === 'phone' ? 'tel' : 'text'}
+                    required={field !== 'phone'}
                     value={form[field]}
                     onChange={e => setForm(f => ({ ...f, [field]: e.target.value }))}
-                    className="w-full bg-transparent glass rounded-xl px-4 py-3 text-sm text-white/80 font-mono outline-none focus:border-[#818CF866] transition-colors border border-white/5"
-                    placeholder={`Your ${field}...`}
+                    className="w-full bg-transparent glass rounded-xl px-4 py-3 text-sm text-white/80 font-mono outline-none focus:border-[#F9731666] transition-colors border border-white/5"
+                    placeholder={field === 'phone' ? 'Your phone (optional)' : `Your ${field}...`}
                   />
                 )}
               </div>
@@ -126,12 +166,18 @@ export default function Contact({ onUnlock }) {
 
             <button
               type="submit"
-              disabled={status !== 'idle'}
+              disabled={status === 'loading' || status === 'success'}
               className="w-full py-3 rounded-xl font-display font-bold text-sm transition-all duration-300 disabled:opacity-70"
-              style={{ background: status === 'success' ? '#00FF88' : '#818CF8', color: '#050A0E' }}
+              style={{
+                background: status === 'success' ? '#00FF88'
+                  : status === 'error' || status === 'rate' ? '#FF4444'
+                  : '#F97316',
+                color: '#050A0E'
+              }}
+              onClick={status === 'error' || status === 'rate' ? () => setStatus('idle') : undefined}
               data-hover
             >
-              {status === 'idle' && 'Send Message'}
+              {status === 'idle'    && 'Send Message'}
               {status === 'loading' && (
                 <span className="flex items-center justify-center gap-2">
                   <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -142,6 +188,8 @@ export default function Contact({ onUnlock }) {
                 </span>
               )}
               {status === 'success' && '✓ Message Sent!'}
+              {status === 'error'   && '✕ Failed — Click to Retry'}
+              {status === 'rate'    && '⏱ Please wait 60s before sending again'}
             </button>
           </motion.form>
         </div>
@@ -158,7 +206,7 @@ export default function Contact({ onUnlock }) {
           </span>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-xs font-mono text-white/30 hover:text-[#818CF8] transition-colors flex items-center gap-1"
+            className="text-xs font-mono text-white/30 hover:text-[#F97316] transition-colors flex items-center gap-1"
             data-hover
           >
             Back to top ↑

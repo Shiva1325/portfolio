@@ -5,7 +5,7 @@ export const achievements = [
     description: 'Started exploring the portfolio',
     icon: '👁️',
     section: 'hero',
-    color: '#818CF8',
+    color: '#F97316',
     secret: false,
   },
   {
@@ -14,7 +14,7 @@ export const achievements = [
     description: 'Explored the skills section',
     icon: '⚡',
     section: 'skills',
-    color: '#F472B6',
+    color: '#22D3EE',
     secret: false,
   },
   {

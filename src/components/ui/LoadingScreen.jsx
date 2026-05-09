@@ -47,14 +47,14 @@ export default function LoadingScreen({ onComplete }) {
             initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
-            className="font-mono text-xs tracking-[0.3em] text-[#818CF888] mb-6"
+            className="font-mono text-xs tracking-[0.3em] text-[#F9731688] mb-6"
           >
             {messages[msgIdx]}
           </motion.p>
 
           {/* Progress bar */}
           <div className="w-48 h-0.5 bg-white/5 rounded-full overflow-hidden">
-            <div className="h-full bg-[#818CF8] load-bar rounded-full" />
+            <div className="h-full bg-[#F97316] load-bar rounded-full" />
           </div>
         </motion.div>
       )}

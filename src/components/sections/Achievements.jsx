@@ -46,7 +46,7 @@ export default function Achievements({ unlocked }) {
           className="h-1.5 bg-white/5 rounded-full overflow-hidden mb-10"
         >
           <div
-            className="h-full bg-gradient-to-r from-[#818CF8] to-[#F472B6] rounded-full transition-all duration-700"
+            className="h-full bg-gradient-to-r from-[#F97316] to-[#22D3EE] rounded-full transition-all duration-700"
             style={{ width: `${(unlocked.size / nonSecret.length) * 100}%` }}
           />
         </motion.div>

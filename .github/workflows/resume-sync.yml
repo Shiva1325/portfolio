@@ -1,0 +1,63 @@
+name: Resume Sync
+
+# Triggers when you push your Overleaf resume to GitHub via Overleaf's GitHub sync.
+# Setup: In Overleaf → Menu → GitHub → Sync → point to a repo named "resume-latex".
+# Every time you push from Overleaf, this workflow copies the compiled PDF here.
+
+on:
+  repository_dispatch:
+    types: [resume-updated]
+  workflow_dispatch:
+    inputs:
+      pdf_url:
+        description: 'Direct URL to the compiled PDF (optional)'
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync-resume:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout portfolio source
+        uses: actions/checkout@v4
+
+      - name: Download latest resume PDF from Overleaf
+        run: |
+          curl -L \
+            "https://www.overleaf.com/download/project/63b20a7df9ce7bcb5887cb22/build/latest/output/output.pdf?token=pfjrmdcnrqtm" \
+            -o public/resume.pdf \
+            --fail \
+            || echo "Overleaf download failed — keeping existing resume.pdf"
+
+      - name: Commit updated resume
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/resume.pdf
+          git diff --staged --quiet || git commit -m "chore: sync resume from Overleaf [skip ci]"
+          git push
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build & Deploy
+        run: npm run build
+        env:
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

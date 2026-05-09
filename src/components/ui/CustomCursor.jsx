@@ -26,11 +26,11 @@ export default function CustomCursor() {
     }
 
     const onEnter = () => {
-      innerRef.current?.classList.add('scale-[2.2]', 'opacity-80', '!border-[#818CF8]')
+      innerRef.current?.classList.add('scale-[2.2]', 'opacity-80', '!border-[#F97316]')
       dotRef.current?.classList.add('opacity-0')
     }
     const onLeave = () => {
-      innerRef.current?.classList.remove('scale-[2.2]', 'opacity-80', '!border-[#818CF8]')
+      innerRef.current?.classList.remove('scale-[2.2]', 'opacity-80', '!border-[#F97316]')
       dotRef.current?.classList.remove('opacity-0')
     }
     const onClick = () => {
@@ -66,7 +66,7 @@ export default function CustomCursor() {
         className="fixed top-0 left-0 pointer-events-none z-[9999] transition-opacity duration-150"
         style={{ willChange: 'transform' }}
       >
-        <div className="w-2 h-2 bg-[#818CF8] rounded-full -translate-x-1/2 -translate-y-1/2" />
+        <div className="w-2 h-2 bg-[#F97316] rounded-full -translate-x-1/2 -translate-y-1/2" />
       </div>
 
       {/* Ring outer — position only via RAF spring, zero CSS transition on transform */}
@@ -78,7 +78,7 @@ export default function CustomCursor() {
         {/* Ring inner — only scale changes via CSS transition, never position */}
         <div
           ref={innerRef}
-          className="w-10 h-10 rounded-full border border-[#818CF844] -translate-x-1/2 -translate-y-1/2 transition-transform duration-200"
+          className="w-10 h-10 rounded-full border border-[#F9731644] -translate-x-1/2 -translate-y-1/2 transition-transform duration-200"
         />
       </div>
     </>

@@ -4,8 +4,8 @@ import { useInView } from 'react-intersection-observer'
 import { gsap } from 'gsap'
 
 const stats = [
-  { value: 4,    suffix: '+', label: 'Years Experience', color: '#818CF8' },
-  { value: 5,    suffix: '',  label: 'Companies',        color: '#F472B6' },
+  { value: 4,    suffix: '+', label: 'Years Experience', color: '#F97316' },
+  { value: 5,    suffix: '',  label: 'Companies',        color: '#22D3EE' },
   { value: 20,   suffix: '+', label: 'Skills Mastered',  color: '#00FF88' },
   { value: 1200, suffix: '+', label: 'Users Served',     color: '#FFB800' },
 ]
@@ -50,7 +50,7 @@ function ProfilePhoto() {
         animate={{ opacity: [0.2, 0.45, 0.2] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
         style={{
-          background: 'radial-gradient(circle, rgba(129,140,248,0.25) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(249,115,22,0.25) 0%, transparent 70%)',
         }}
       />
 
@@ -60,7 +60,7 @@ function ProfilePhoto() {
         animate={{ rotate: 360 }}
         transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
         style={{
-          background: 'conic-gradient(from 0deg, #818CF8, #F472B6, #00FF88, #FFB800, #818CF8)',
+          background: 'conic-gradient(from 0deg, #F97316, #22D3EE, #00FF88, #FFB800, #F97316)',
           padding: 3,
           borderRadius: '50%',
         }}
@@ -79,7 +79,7 @@ function ProfilePhoto() {
         <motion.div
           className="absolute inset-x-0 h-[40%] pointer-events-none"
           style={{
-            background: 'linear-gradient(180deg, transparent, rgba(129,140,248,0.18), transparent)',
+            background: 'linear-gradient(180deg, transparent, rgba(249,115,22,0.18), transparent)',
           }}
           animate={{ top: ['-40%', '140%'] }}
           transition={{ duration: 2.5, repeat: Infinity, ease: 'linear', repeatDelay: 2 }}
@@ -109,8 +109,8 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-3 mb-12"
         >
-          <div className="w-8 h-px bg-[#818CF8]" />
-          <span className="text-xs font-mono tracking-widest text-[#818CF888] uppercase">About Me</span>
+          <div className="w-8 h-px bg-[#F97316]" />
+          <span className="text-xs font-mono tracking-widest text-[#F9731688] uppercase">About Me</span>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -160,8 +160,8 @@ export default function About() {
 
             <div className="mt-8 p-4 glass rounded-xl border border-white/5">
               <pre className="font-mono text-xs text-white/30 leading-relaxed">
-                <span className="text-[#F472B6]">const</span>{' '}
-                <span className="text-[#818CF8]">me</span> = {'{'}
+                <span className="text-[#22D3EE]">const</span>{' '}
+                <span className="text-[#F97316]">me</span> = {'{'}
                 {'\n  '}
                 <span className="text-[#00FF88]">name</span>: <span className="text-white/50">'Shiva Patibandla'</span>,
                 {'\n  '}

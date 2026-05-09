@@ -9,7 +9,7 @@ function UniversityLogo({ university }) {
     return <div className="w-14 h-14 flex-shrink-0"><ISMLogo /></div>
   const initials = university.split(/[\s()]+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()
   return (
-    <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-base font-bold font-mono flex-shrink-0 bg-[#818CF814] border border-[#818CF833] text-[#818CF8]">
+    <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-base font-bold font-mono flex-shrink-0 bg-[#F9731614] border border-[#F9731633] text-[#F97316]">
       {initials}
     </div>
   )
@@ -106,7 +106,7 @@ export default function Education() {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={inView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ delay: 0.6 + ci * 0.06 }}
-                      className="text-xs font-mono px-2.5 py-1 rounded-full glass text-white/50 border border-white/5 hover:text-[#818CF8] hover:border-[#818CF833] transition-colors cursor-default"
+                      className="text-xs font-mono px-2.5 py-1 rounded-full glass text-white/50 border border-white/5 hover:text-[#F97316] hover:border-[#F9731633] transition-colors cursor-default"
                     >
                       {c}
                     </motion.span>

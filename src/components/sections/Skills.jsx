@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { skills, skillCategories } from '../../data/skills'
 
-const COLOR = { Frontend: '#818CF8', Backend: '#F472B6', Cloud: '#00FF88', Data: '#FFB800' }
-const getColor = (cat) => COLOR[cat] || '#818CF8'
+const COLOR = { Frontend: '#F97316', Backend: '#22D3EE', Cloud: '#00FF88', Data: '#FFB800' }
+const getColor = (cat) => COLOR[cat] || '#F97316'
 
 const R = 200
 
@@ -30,30 +30,29 @@ function applyRX(p, a) {
 
 // ── Smoke + colour-depth background ──────────────────────────────
 function SmokeBg() {
-  // Deep colour blobs — very faint, just add tonal depth
   const colorBlobs = [
-    { color: '#818CF8', w: 500, h: 420, left: '5%',   top: '-10%',   anim: 'nebula-1 18s ease-in-out infinite',          op: 0.055 },
-    { color: '#F472B6', w: 460, h: 460, right: '-5%',  top: '5%',    anim: 'nebula-2 22s ease-in-out infinite',          op: 0.06  },
-    { color: '#00FF88', w: 340, h: 320, left: '25%',   bottom: '-5%', anim: 'nebula-3 15s ease-in-out infinite',         op: 0.035 },
+    { color: '#F97316', w: 600, h: 500, left: '0%',   top: '-15%',   anim: 'nebula-1 18s ease-in-out infinite',   op: 0.28 },
+    { color: '#22D3EE', w: 560, h: 560, right: '-5%',  top: '0%',    anim: 'nebula-2 22s ease-in-out infinite',   op: 0.24 },
+    { color: '#00FF88', w: 420, h: 400, left: '22%',   bottom: '-10%', anim: 'nebula-3 15s ease-in-out infinite', op: 0.18 },
+    { color: '#F97316', w: 300, h: 280, left: '50%',   top: '10%',   anim: 'nebula-2 20s ease-in-out infinite',   op: 0.12 },
   ]
 
-  // White smoke wisps — multiple staggered risers
   const wisps = [
-    { w: 160, h: 200, left: '18%', bottom: '0%',   blur: 55,  anim: 'smoke-rise-1 9s ease-out  infinite',       delay: '0s'    },
-    { w: 200, h: 240, left: '38%', bottom: '-5%',  blur: 65,  anim: 'smoke-rise-2 11s ease-out infinite',       delay: '2.5s'  },
-    { w: 140, h: 180, left: '58%', bottom: '0%',   blur: 50,  anim: 'smoke-rise-3 8s ease-out  infinite',       delay: '1.2s'  },
-    { w: 180, h: 220, left: '75%', bottom: '-3%',  blur: 60,  anim: 'smoke-rise-1 12s ease-out infinite',       delay: '4s'    },
-    { w: 120, h: 160, left: '6%',  bottom: '5%',   blur: 45,  anim: 'smoke-rise-2 10s ease-out infinite',       delay: '3.1s'  },
-    { w: 220, h: 260, left: '48%', bottom: '-8%',  blur: 70,  anim: 'smoke-rise-3 14s ease-out infinite',       delay: '5.8s'  },
-    { w: 150, h: 190, left: '28%', bottom: '2%',   blur: 52,  anim: 'smoke-rise-1 10s ease-out infinite',       delay: '7s'    },
-    // Wide low ground-hugging haze
-    { w: 700, h: 80,  left: '0%',  bottom: '0%',   blur: 30,  anim: 'smoke-sway 14s ease-in-out infinite',      delay: '0s',  op: 0.03 },
-    { w: 600, h: 70,  left: '10%', bottom: '8%',   blur: 28,  anim: 'smoke-sway 18s ease-in-out infinite reverse', delay: '3s', op: 0.025 },
+    { w: 210, h: 270, left: '18%', bottom: '0%',   blur: 55,  anim: 'smoke-rise-1 9s ease-out  infinite',          delay: '0s'   },
+    { w: 260, h: 310, left: '38%', bottom: '-5%',  blur: 65,  anim: 'smoke-rise-2 11s ease-out infinite',          delay: '2.5s' },
+    { w: 185, h: 245, left: '58%', bottom: '0%',   blur: 50,  anim: 'smoke-rise-3 8s ease-out  infinite',          delay: '1.2s' },
+    { w: 230, h: 290, left: '75%', bottom: '-3%',  blur: 60,  anim: 'smoke-rise-1 12s ease-out infinite',          delay: '4s'   },
+    { w: 165, h: 225, left: '6%',  bottom: '5%',   blur: 45,  anim: 'smoke-rise-2 10s ease-out infinite',          delay: '3.1s' },
+    { w: 290, h: 340, left: '48%', bottom: '-8%',  blur: 70,  anim: 'smoke-rise-3 14s ease-out infinite',          delay: '5.8s' },
+    { w: 200, h: 260, left: '28%', bottom: '2%',   blur: 52,  anim: 'smoke-rise-1 10s ease-out infinite',          delay: '7s'   },
+    // Ground-hugging haze
+    { w: 900, h: 110, left: '-5%', bottom: '0%',   blur: 35,  anim: 'smoke-sway 14s ease-in-out infinite',         delay: '0s',  op: 0.18 },
+    { w: 750, h: 90,  left: '8%',  bottom: '10%',  blur: 30,  anim: 'smoke-sway 18s ease-in-out infinite reverse', delay: '3s',  op: 0.13 },
   ]
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl">
-      {/* Colour depth layer */}
+      {/* Neon glow blobs — screen blend so they shine through smoke */}
       {colorBlobs.map((b, i) => (
         <div key={`c${i}`} className="absolute rounded-full"
           style={{ width: b.w, height: b.h,
@@ -62,26 +61,28 @@ function SmokeBg() {
             ...(b.top   ? { top: b.top }    : {}),
             ...(b.bottom? { bottom: b.bottom} : {}),
             background: b.color,
-            filter: `blur(110px)`,
+            filter: 'blur(100px)',
             opacity: b.op,
             animation: b.anim,
+            mixBlendMode: 'screen',
           }}
         />
       ))}
 
-      {/* Smoke wispslayer */}
+      {/* Smoke wisps — rise from bottom and fade */}
       {wisps.map((w, i) => (
         <div key={`s${i}`} className="absolute rounded-full"
           style={{
             width: w.w, height: w.h,
             left: w.left,
             bottom: w.bottom,
-            background: 'rgba(220,230,255,1)',
+            background: 'rgba(210,225,245,1)',
             filter: `blur(${w.blur}px)`,
             opacity: w.op ?? 0,
             animation: w.anim,
             animationDelay: w.delay,
             transformOrigin: 'bottom center',
+            mixBlendMode: 'overlay',
           }}
         />
       ))}
@@ -155,7 +156,7 @@ function SkillSphere({ activeCategory }) {
       <div className="absolute pointer-events-none rounded-full"
         style={{ width: 12, height: 12,
           left: 'calc(50% - 6px)', top: 'calc(50% - 6px)',
-          background: '#818CF8', boxShadow: '0 0 36px 12px #818CF844' }} />
+          background: '#F97316', boxShadow: '0 0 36px 12px #F9731644' }} />
 
       {/* Tags */}
       <div className="absolute" style={{ left: '50%', top: '50%' }}>
@@ -194,8 +195,8 @@ export default function Skills({ onUnlock }) {
 
         <motion.div initial={{ opacity:0, x:-20 }} animate={inView ? {opacity:1,x:0} : {}}
           className="flex items-center gap-3 mb-12">
-          <div className="w-8 h-px bg-[#F472B6]" />
-          <span className="text-xs font-mono tracking-widest text-[#F472B688] uppercase">Skills</span>
+          <div className="w-8 h-px bg-[#22D3EE]" />
+          <span className="text-xs font-mono tracking-widest text-[#22D3EE88] uppercase">Skills</span>
         </motion.div>
 
         <motion.div initial={{ opacity:0, y:20 }} animate={inView ? {opacity:1,y:0} : {}}
@@ -208,7 +209,7 @@ export default function Skills({ onUnlock }) {
               <button key={cat} onClick={() => setActive(cat)} data-hover
                 className="px-4 py-1.5 rounded-full text-xs font-mono transition-all duration-200"
                 style={active === cat
-                  ? { background: getColor(cat) || '#818CF8', color: '#050A0E', fontWeight: 700 }
+                  ? { background: getColor(cat) || '#F97316', color: '#050A0E', fontWeight: 700 }
                   : { background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.45)',
                       border: '1px solid rgba(255,255,255,0.08)' }
                 }

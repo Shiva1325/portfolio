@@ -5,8 +5,8 @@ export default {
     extend: {
       colors: {
         bg: '#050A0E',
-        'neon-cyan': '#818CF8',
-        'neon-purple': '#F472B6',
+        'neon-cyan': '#F97316',
+        'neon-purple': '#22D3EE',
         'neon-green': '#00FF88',
         'off-white': '#E8F4FD',
         'glass': 'rgba(255,255,255,0.04)',
@@ -16,12 +16,12 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
-        'neon-cyan': '0 0 20px rgba(129,140,248,0.4), 0 0 60px rgba(129,140,248,0.1)',
-        'neon-purple': '0 0 20px rgba(244,114,182,0.4), 0 0 60px rgba(244,114,182,0.1)',
+        'neon-cyan': '0 0 20px rgba(249,115,22,0.4), 0 0 60px rgba(249,115,22,0.1)',
+        'neon-purple': '0 0 20px rgba(34,211,238,0.4), 0 0 60px rgba(34,211,238,0.1)',
         'neon-green': '0 0 20px rgba(0,255,136,0.4)',
       },
       backgroundImage: {
-        'dot-grid': 'radial-gradient(circle, rgba(129,140,248,0.08) 1px, transparent 1px)',
+        'dot-grid': 'radial-gradient(circle, rgba(249,115,22,0.08) 1px, transparent 1px)',
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       backgroundSize: {

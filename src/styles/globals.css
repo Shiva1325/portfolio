@@ -18,18 +18,18 @@ body {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #050A0E; }
-::-webkit-scrollbar-thumb { background: #818CF844; border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: #818CF888; }
+::-webkit-scrollbar-thumb { background: #F9731644; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #F9731688; }
 
 /* Selection */
-::selection { background: rgba(129, 140, 248, 0.2); color: #818CF8; }
+::selection { background: rgba(249, 115, 22, 0.2); color: #F97316; }
 
 /* Smooth scroll */
 html { scroll-behavior: smooth; }
 
 /* Dot grid background */
 .dot-grid {
-  background-image: radial-gradient(circle, rgba(129,140,248,0.07) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(249,115,22,0.07) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
@@ -43,19 +43,19 @@ html { scroll-behavior: smooth; }
 
 /* Neon text */
 .neon-text {
-  color: #818CF8;
-  text-shadow: 0 0 10px rgba(129,140,248,0.5), 0 0 30px rgba(129,140,248,0.2);
+  color: #F97316;
+  text-shadow: 0 0 10px rgba(249,115,22,0.5), 0 0 30px rgba(249,115,22,0.2);
 }
 
 .neon-text-purple {
-  color: #F472B6;
-  text-shadow: 0 0 10px rgba(244,114,182,0.5), 0 0 30px rgba(244,114,182,0.2);
+  color: #22D3EE;
+  text-shadow: 0 0 10px rgba(34,211,238,0.5), 0 0 30px rgba(34,211,238,0.2);
 }
 
 /* Neon border glow */
 .neon-border {
-  border: 1px solid rgba(129,140,248,0.3);
-  box-shadow: 0 0 20px rgba(129,140,248,0.1), inset 0 0 20px rgba(129,140,248,0.03);
+  border: 1px solid rgba(249,115,22,0.3);
+  box-shadow: 0 0 20px rgba(249,115,22,0.1), inset 0 0 20px rgba(249,115,22,0.03);
 }
 
 /* Hex clip */
@@ -84,13 +84,13 @@ html { scroll-behavior: smooth; }
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  border: 2px solid #818CF8;
+  border: 2px solid #F97316;
   animation: pulse-ring 2s ease-out infinite;
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #818CF8 0%, #F472B6 100%);
+  background: linear-gradient(135deg, #F97316 0%, #22D3EE 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -126,21 +126,21 @@ html { scroll-behavior: smooth; }
 }
 /* Smoke wisps — rise, expand, fade */
 @keyframes smoke-rise-1 {
-  0%   { transform: translate(0,0)   scale(1)    rotate(0deg);   opacity: 0.055; }
-  35%  { transform: translate(28px,-60px) scale(1.25) rotate(4deg);  opacity: 0.038; }
-  65%  { transform: translate(-18px,-110px) scale(1.55) rotate(-3deg); opacity: 0.018; }
+  0%   { transform: translate(0,0)   scale(1)    rotate(0deg);   opacity: 0.38; }
+  35%  { transform: translate(28px,-60px) scale(1.25) rotate(4deg);  opacity: 0.24; }
+  65%  { transform: translate(-18px,-110px) scale(1.55) rotate(-3deg); opacity: 0.10; }
   100% { transform: translate(10px,-160px) scale(1.8)  rotate(6deg);  opacity: 0; }
 }
 @keyframes smoke-rise-2 {
-  0%   { transform: translate(0,0)   scale(1)    rotate(0deg);   opacity: 0.05; }
-  40%  { transform: translate(-22px,-70px) scale(1.3)  rotate(-5deg); opacity: 0.03; }
-  70%  { transform: translate(15px,-120px) scale(1.6)  rotate(2deg);  opacity: 0.014; }
+  0%   { transform: translate(0,0)   scale(1)    rotate(0deg);   opacity: 0.34; }
+  40%  { transform: translate(-22px,-70px) scale(1.3)  rotate(-5deg); opacity: 0.20; }
+  70%  { transform: translate(15px,-120px) scale(1.6)  rotate(2deg);  opacity: 0.09; }
   100% { transform: translate(-8px,-170px) scale(1.9)  rotate(-4deg); opacity: 0; }
 }
 @keyframes smoke-rise-3 {
-  0%   { transform: translate(0,0)   scale(1)    rotate(0deg);   opacity: 0.045; }
-  30%  { transform: translate(18px,-50px)  scale(1.2)  rotate(3deg);  opacity: 0.032; }
-  60%  { transform: translate(-25px,-95px) scale(1.45) rotate(-6deg); opacity: 0.016; }
+  0%   { transform: translate(0,0)   scale(1)    rotate(0deg);   opacity: 0.30; }
+  30%  { transform: translate(18px,-50px)  scale(1.2)  rotate(3deg);  opacity: 0.20; }
+  60%  { transform: translate(-25px,-95px) scale(1.45) rotate(-6deg); opacity: 0.09; }
   100% { transform: translate(12px,-145px) scale(1.75) rotate(5deg);  opacity: 0; }
 }
 @keyframes smoke-sway {
@@ -195,12 +195,12 @@ html { scroll-behavior: smooth; }
 @keyframes auto-glitch {
   0%, 88%, 100% {
     transform: translate(0);
-    text-shadow: 0 0 8px rgba(129,140,248,0.4);
+    text-shadow: 0 0 8px rgba(249,115,22,0.4);
   }
-  89% { transform: translate(-3px, 1px); text-shadow: -2px 0 #F472B6, 2px 0 #818CF8; }
-  90% { transform: translate(3px, -1px); text-shadow: 2px 0 #F472B6, -2px 0 #818CF8; }
-  91% { transform: translate(-1px, 2px); text-shadow: -2px 0 #818CF8; }
-  92% { transform: translate(0); text-shadow: 0 0 8px rgba(129,140,248,0.4); }
+  89% { transform: translate(-3px, 1px); text-shadow: -2px 0 #22D3EE, 2px 0 #F97316; }
+  90% { transform: translate(3px, -1px); text-shadow: 2px 0 #22D3EE, -2px 0 #F97316; }
+  91% { transform: translate(-1px, 2px); text-shadow: -2px 0 #F97316; }
+  92% { transform: translate(0); text-shadow: 0 0 8px rgba(249,115,22,0.4); }
 }
 
 /* Circuit line trace */
@@ -213,4 +213,12 @@ html { scroll-behavior: smooth; }
 @keyframes terminal-blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+/* Waving hand animation */
+@keyframes wave-hand {
+  0%, 100% { transform: rotate(-10deg); }
+  30%       { transform: rotate(25deg); }
+  60%       { transform: rotate(-5deg); }
+  80%       { transform: rotate(20deg); }
 }

@@ -62,7 +62,7 @@ export default function Experience({ onUnlock }) {
 
         <div className="relative">
           <div className="absolute left-5 top-0 bottom-0 w-px bg-white/5">
-            <div ref={lineRef} className="absolute inset-0 bg-[#818CF844]" style={{ scaleY: 0 }} />
+            <div ref={lineRef} className="absolute inset-0 bg-[#F9731644]" style={{ scaleY: 0 }} />
           </div>
 
           <div className="space-y-10">

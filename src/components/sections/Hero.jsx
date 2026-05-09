@@ -20,9 +20,7 @@ function ParticleField() {
   const ref = useRef()
   const count = 6000
   const positions = new Float32Array(count * 3)
-  for (let i = 0; i < count * 3; i++) {
-    positions[i] = (Math.random() - 0.5) * 20
-  }
+  for (let i = 0; i < count * 3; i++) positions[i] = (Math.random() - 0.5) * 20
 
   useFrame(({ clock, mouse }) => {
     if (!ref.current) return
@@ -30,22 +28,13 @@ function ParticleField() {
     ref.current.rotation.x = mouse.y * 0.08
     ref.current.rotation.z = mouse.x * 0.04
   })
-
   return (
     <Points ref={ref} positions={positions} frustumCulled={false}>
-      <PointMaterial
-        transparent
-        color="#818CF8"
-        size={0.025}
-        sizeAttenuation
-        depthWrite={false}
-        opacity={0.55}
-      />
+      <PointMaterial transparent color="#F97316" size={0.025} sizeAttenuation depthWrite={false} opacity={0.55} />
     </Points>
   )
 }
 
-// ── Floating Geometry ────────────────────────────────────────────
 function FloatingGeo({ position, color, speed = 1 }) {
   const ref = useRef()
   useFrame(({ clock }) => {
@@ -73,7 +62,6 @@ function TypewriterRole() {
   useEffect(() => {
     const target = roles[roleIdx]
     let timeout
-
     if (!deleting && displayed.length < target.length) {
       timeout = setTimeout(() => setDisplayed(target.slice(0, displayed.length + 1)), 65)
     } else if (!deleting && displayed.length === target.length) {
@@ -89,59 +77,85 @@ function TypewriterRole() {
 
   return (
     <span className="neon-text font-mono text-xl md:text-2xl">
-      {displayed}
-      <span className="animate-pulse">|</span>
+      {displayed}<span className="animate-pulse">|</span>
     </span>
+  )
+}
+
+// ── Waving Avatar ────────────────────────────────────────────────
+function HeroAvatar() {
+  return (
+    <motion.div
+      className="relative w-28 h-28 mx-auto mb-4"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
+      transition={{
+        opacity: { duration: 0.6 },
+        scale:   { duration: 0.6 },
+        y:       { duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0.6 },
+      }}
+    >
+      {/* Pulsing outer glow */}
+      <motion.div
+        className="absolute -inset-4 rounded-full pointer-events-none"
+        animate={{ opacity: [0.25, 0.55, 0.25], scale: [1, 1.08, 1] }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.4) 0%, transparent 70%)' }}
+      />
+      {/* Spinning ring */}
+      <motion.div
+        className="absolute inset-0 rounded-full"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+        style={{ background: 'conic-gradient(from 0deg, #F97316, #22D3EE, #00FF88, #F97316)', padding: 3, borderRadius: '50%' }}
+      />
+      <div className="absolute inset-[3px] rounded-full bg-[#050A0E]" />
+      {/* Photo */}
+      <div className="absolute inset-[3px] rounded-full overflow-hidden">
+        <img src={import.meta.env.BASE_URL + 'avatar.jpg'} alt="Shiva" className="w-full h-full object-cover" />
+      </div>
+      {/* Waving hand emoji */}
+      <div
+        className="absolute -bottom-1 -right-2 text-2xl select-none"
+        style={{ animation: 'wave-hand 1.5s ease-in-out infinite', transformOrigin: '70% 70%', display: 'inline-block' }}
+      >
+        👋
+      </div>
+    </motion.div>
   )
 }
 
 // ── Terminal Decoration ──────────────────────────────────────────
 const terminalLines = [
   { cmd: 'sys.init()',         result: 'OK',   color: '#00FF88' },
-  { cmd: 'auth.verify()',      result: 'PASS', color: '#818CF8' },
-  { cmd: 'assets.load()',      result: '100%', color: '#818CF8' },
-  { cmd: 'portfolio.render()', result: '→',    color: '#F472B6' },
+  { cmd: 'auth.verify()',      result: 'PASS', color: '#F97316' },
+  { cmd: 'assets.load()',      result: '100%', color: '#F97316' },
+  { cmd: 'portfolio.render()', result: '→',    color: '#22D3EE' },
 ]
 
 function TerminalReadout() {
   const [visible, setVisible] = useState(0)
-
   useEffect(() => {
     let i = 0
-    const id = setInterval(() => {
-      i++
-      setVisible(i)
-      if (i >= terminalLines.length) clearInterval(id)
-    }, 550)
+    const id = setInterval(() => { i++; setVisible(i); if (i >= terminalLines.length) clearInterval(id) }, 550)
     return () => clearInterval(id)
   }, [])
-
   return (
     <div className="absolute bottom-20 left-6 z-[2] hidden lg:block">
       <div className="space-y-1">
         {terminalLines.slice(0, visible).map((l, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -8 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex gap-2 items-center font-mono text-[10px]"
-          >
+          <motion.div key={i} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
+            className="flex gap-2 items-center font-mono text-[10px]">
             <span className="text-[#00FF88]/40">›</span>
             <span className="text-white/20">{l.cmd}</span>
             <span style={{ color: `${l.color}60` }}>{l.result}</span>
           </motion.div>
         ))}
         {visible >= terminalLines.length && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex gap-2 items-center font-mono text-[10px]"
-          >
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            className="flex gap-2 items-center font-mono text-[10px]">
             <span className="text-[#00FF88]/40">›</span>
-            <span
-              className="text-white/20"
-              style={{ animation: 'terminal-blink 1s step-end infinite' }}
-            >█</span>
+            <span className="text-white/20" style={{ animation: 'terminal-blink 1s step-end infinite' }}>█</span>
           </motion.div>
         )}
       </div>
@@ -162,14 +176,10 @@ export default function Hero({ onUnlock }) {
       { opacity: 1, y: 0, rotationX: 0, duration: 0.7, stagger: 0.05, ease: 'back.out(2)' }
     )
     onUnlock('hero')
-
-    // Occasional auto-glitch on name
     const glitchInterval = setInterval(() => {
       if (!nameRef.current) return
-      gsap.to(nameRef.current, {
-        skewX: 3, duration: 0.05, yoyo: true, repeat: 3,
-        onComplete: () => gsap.set(nameRef.current, { skewX: 0 }),
-      })
+      gsap.to(nameRef.current, { skewX: 3, duration: 0.05, yoyo: true, repeat: 3,
+        onComplete: () => gsap.set(nameRef.current, { skewX: 0 }) })
     }, 5000)
     return () => clearInterval(glitchInterval)
   }, [inView, onUnlock])
@@ -178,111 +188,82 @@ export default function Hero({ onUnlock }) {
 
   return (
     <section id="hero" className="relative w-full h-screen flex items-center justify-center overflow-hidden crt">
-      {/* Three.js canvas */}
       <div className="absolute inset-0 z-0">
         <WebGLErrorBoundary>
           <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
             <ambientLight intensity={0.3} />
-            <pointLight position={[5, 5, 5]} color="#818CF8" intensity={0.8} />
-            <pointLight position={[-5, -5, -5]} color="#F472B6" intensity={0.5} />
+            <pointLight position={[5, 5, 5]} color="#F97316" intensity={0.8} />
+            <pointLight position={[-5, -5, -5]} color="#22D3EE" intensity={0.5} />
             <ParticleField />
-            <FloatingGeo position={[3.5, 1, -2]} color="#818CF8" speed={0.7} />
-            <FloatingGeo position={[-3.5, -1, -1]} color="#F472B6" speed={1.2} />
+            <FloatingGeo position={[3.5, 1, -2]} color="#F97316" speed={0.7} />
+            <FloatingGeo position={[-3.5, -1, -1]} color="#22D3EE" speed={1.2} />
             <FloatingGeo position={[2, -2, -3]} color="#00FF88" speed={0.5} />
           </Canvas>
         </WebGLErrorBoundary>
       </div>
 
-      {/* Radial vignette */}
       <div className="absolute inset-0 z-[1] bg-gradient-radial from-transparent via-transparent to-[#050A0E]" />
 
-      {/* Hero content */}
       <div ref={inViewRef} className="relative z-[2] text-center px-6 max-w-4xl mx-auto">
+        {/* Waving profile photo */}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+          <HeroAvatar />
+        </motion.div>
+
         {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#818CF80A] border border-[#818CF833] mb-6"
-        >
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F973160A] border border-[#F9731633] mb-5">
           <span className="w-1.5 h-1.5 rounded-full bg-[#00FF88] animate-pulse" />
-          <span className="text-xs font-mono text-[#818CF888] tracking-widest">ANALYST SOFTWARE ENGINEER @ GOLDMAN SACHS</span>
+          <span className="text-xs font-mono text-[#F9731688] tracking-widest">ANALYST SOFTWARE ENGINEER @ GOLDMAN SACHS</span>
         </motion.div>
 
         {/* Name */}
-        <h1
-          ref={nameRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-4 leading-none"
-          style={{ perspective: '600px' }}
-        >
+        <h1 ref={nameRef} className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-4 leading-none"
+          style={{ perspective: '600px' }}>
           {'Shiva Patibandla'.split('').map((c, i) => (
-            <span
-              key={i}
-              className={`char inline-block ${c === ' ' ? 'w-4 md:w-6' : ''}`}
+            <span key={i} className={`char inline-block ${c === ' ' ? 'w-4 md:w-6' : ''}`}
               style={{ opacity: 0, display: 'inline-block' }}
               onMouseEnter={e => {
-                gsap.to(e.target, { color: '#818CF8', textShadow: '0 0 20px #818CF8', duration: 0.1 })
+                gsap.to(e.target, { color: '#F97316', textShadow: '0 0 20px #F97316', duration: 0.1 })
                 gsap.to(e.target, { color: '#E8F4FD', textShadow: 'none', duration: 0.4, delay: 0.15 })
-              }}
-            >
+              }}>
               {c}
             </span>
           ))}
         </h1>
 
-        {/* Role typewriter */}
         <div className="h-10 flex items-center justify-center mb-8">
           <TypewriterRole />
         </div>
 
-        {/* Bio */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="text-white/50 text-base md:text-lg max-w-lg mx-auto mb-10 leading-relaxed"
-        >
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
+          className="text-white/50 text-base md:text-lg max-w-lg mx-auto mb-10 leading-relaxed">
           Software engineer at Goldman Sachs. 4+ years building enterprise systems — Java backends, React frontends, distributed systems, and cloud deployments.
         </motion.p>
 
-        {/* CTA buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <button
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-7 py-3 rounded-full bg-[#818CF8] text-[#050A0E] font-display font-bold text-sm tracking-wide transition-all duration-200 hover:shadow-neon-cyan hover:scale-105 active:scale-95"
-            data-hover
-          >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+            className="px-7 py-3 rounded-full bg-[#F97316] text-[#050A0E] font-display font-bold text-sm tracking-wide transition-all duration-200 hover:shadow-neon-cyan hover:scale-105 active:scale-95"
+            data-hover>
             Explore My Work
           </button>
-          <a
-            href="#"
-            className="px-7 py-3 rounded-full border border-[#818CF844] text-[#818CF8] font-display font-semibold text-sm tracking-wide transition-all duration-200 hover:bg-[#818CF80A] hover:border-[#818CF888]"
-            data-hover
-          >
+          <a href={import.meta.env.BASE_URL + 'resume.pdf'}
+            download="Shiva_Patibandla_Resume.pdf"
+            className="px-7 py-3 rounded-full border border-[#F9731644] text-[#F97316] font-display font-semibold text-sm tracking-wide transition-all duration-200 hover:bg-[#F973160A] hover:border-[#F9731688]"
+            data-hover>
             Download Resume
           </a>
         </motion.div>
       </div>
 
-      {/* Terminal readout */}
       <TerminalReadout />
 
-      {/* Scroll indicator */}
-      <button
-        onClick={scrollDown}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[2] flex flex-col items-center gap-1 text-white/30 hover:text-[#818CF8] transition-colors"
-        data-hover
-      >
+      <button onClick={scrollDown}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[2] flex flex-col items-center gap-1 text-white/30 hover:text-[#F97316] transition-colors"
+        data-hover>
         <span className="text-[10px] font-mono tracking-widest">SCROLL</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-        >
+        <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>

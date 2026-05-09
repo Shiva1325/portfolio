@@ -38,7 +38,7 @@ export default function Navbar({ exploredProgress }) {
         >
           {/* Scroll progress bar at top */}
           <div
-            className="absolute top-0 left-0 h-0.5 bg-[#818CF8] rounded-full transition-all duration-150"
+            className="absolute top-0 left-0 h-0.5 bg-[#F97316] rounded-full transition-all duration-150"
             style={{ width: `${scrollPct}%` }}
           />
 
@@ -50,7 +50,7 @@ export default function Navbar({ exploredProgress }) {
                 onClick={() => scrollTo(l.id)}
                 className={`px-3 py-1 rounded-full text-sm font-display transition-all duration-200 ${
                   activeSection === l.id
-                    ? 'bg-[#818CF814] text-[#818CF8]'
+                    ? 'bg-[#F9731614] text-[#F97316]'
                     : 'text-white/50 hover:text-white/80'
                 }`}
               >
@@ -60,9 +60,9 @@ export default function Navbar({ exploredProgress }) {
           </div>
 
           {/* Exploration progress pill */}
-          <div className="ml-2 px-2.5 py-1 rounded-full bg-[#F472B622] border border-[#F472B644] flex items-center gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#F472B6] animate-pulse" />
-            <span className="text-xs font-mono text-[#F472B6]">{exploredProgress}%</span>
+          <div className="ml-2 px-2.5 py-1 rounded-full bg-[#22D3EE22] border border-[#22D3EE44] flex items-center gap-1.5">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse" />
+            <span className="text-xs font-mono text-[#22D3EE]">{exploredProgress}%</span>
           </div>
 
           {/* Mobile menu */}
@@ -90,7 +90,7 @@ export default function Navbar({ exploredProgress }) {
             <button
               key={l.id}
               onClick={() => scrollTo(l.id)}
-              className="text-left px-3 py-2 rounded-lg text-sm font-display text-white/70 hover:text-[#818CF8] hover:bg-[#818CF80A] transition-colors"
+              className="text-left px-3 py-2 rounded-lg text-sm font-display text-white/70 hover:text-[#F97316] hover:bg-[#F973160A] transition-colors"
             >
               {l.label}
             </button>
