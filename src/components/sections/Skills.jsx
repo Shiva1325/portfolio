@@ -229,20 +229,18 @@ export default function Skills({ onUnlock }) {
           <SmokeBg />
           {inView && <SkillSphere activeCategory={active} />}
 
-          {/* Legend overlay bottom-left */}
-          <div className="absolute bottom-5 left-6 flex gap-4 z-10 pointer-events-none">
-            {Object.entries(COLOR).map(([cat, color]) => (
-              <div key={cat} className="flex items-center gap-1.5">
-                <div className="w-1.5 h-1.5 rounded-full" style={{ background: color, boxShadow: `0 0 5px ${color}` }} />
-                <span className="text-[9px] font-mono text-white/30">{cat}</span>
-              </div>
-            ))}
+          {/* Legend + hint stacked at bottom */}
+          <div className="absolute bottom-4 left-0 right-0 px-5 flex flex-col items-center gap-2 z-10 pointer-events-none sm:flex-row sm:justify-between sm:items-end">
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 sm:justify-start">
+              {Object.entries(COLOR).map(([cat, color]) => (
+                <div key={cat} className="flex items-center gap-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ background: color, boxShadow: `0 0 5px ${color}` }} />
+                  <span className="text-[9px] font-mono text-white/30">{cat}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-[9px] font-mono text-white/20 tracking-[0.18em] hidden sm:block">DRAG TO ROTATE</p>
           </div>
-
-          {/* Hint overlay */}
-          <p className="absolute bottom-5 right-6 text-[9px] font-mono text-white/20 tracking-[0.18em] z-10 pointer-events-none">
-            DRAG TO ROTATE
-          </p>
         </motion.div>
       </div>
     </section>

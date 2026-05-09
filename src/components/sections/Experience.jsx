@@ -87,18 +87,19 @@ export default function Experience({ onUnlock }) {
                   style={{ borderColor: `${job.color}22`, boxShadow: `0 0 40px ${job.color}08` }}
                 >
                   {/* Header row */}
-                  <div className="flex flex-wrap items-start gap-4 mb-4">
+                  <div className="flex items-start gap-3 mb-4">
                     <CompanyLogo company={job.company} color={job.color} />
 
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-display font-bold text-white leading-tight">{job.title}</h3>
-                      <p className="text-sm font-mono mt-0.5" style={{ color: job.color }}>{job.company}</p>
+                      <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-0.5">
+                        <h3 className="text-base md:text-lg font-display font-bold text-white leading-tight">{job.title}</h3>
+                        <div className="flex items-center gap-2 flex-shrink-0">
+                          <span className="text-xs font-mono text-white/30 whitespace-nowrap">{job.duration}</span>
+                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 font-mono whitespace-nowrap">{job.type}</span>
+                        </div>
+                      </div>
+                      <p className="text-sm font-mono mt-0.5 truncate" style={{ color: job.color }}>{job.company}</p>
                       <p className="text-xs font-mono text-white/30 mt-0.5">{job.location}</p>
-                    </div>
-
-                    <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                      <span className="text-xs font-mono text-white/30">{job.duration}</span>
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 font-mono">{job.type}</span>
                     </div>
                   </div>
 
