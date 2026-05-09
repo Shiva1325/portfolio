@@ -20,7 +20,7 @@ export const projects = [
     github: 'https://github.com/Shiva1325',
     live: '#',
     featured: true,
-    gradient: 'from-purple-500 to-pink-600',
+    gradient: 'from-slate-700 to-indigo-900',
     icon: '🤖',
   },
   {

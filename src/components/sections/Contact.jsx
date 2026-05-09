@@ -202,7 +202,7 @@ export default function Contact({ onUnlock }) {
           className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <span className="text-xs font-mono text-white/20">
-            © 2025 Shiva Patibandla · Built with React + Vite + GSAP
+            © 2026 Shiva Patibandla · Built with React + Vite + GSAP
           </span>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
