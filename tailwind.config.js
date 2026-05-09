@@ -12,7 +12,8 @@ export default {
         'glass': 'rgba(255,255,255,0.04)',
       },
       fontFamily: {
-        display: ['"Space Grotesk"', 'sans-serif'],
+        display: ['"Syne"', 'sans-serif'],
+        sans: ['"DM Sans"', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {

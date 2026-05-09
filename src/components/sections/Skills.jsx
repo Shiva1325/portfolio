@@ -211,8 +211,8 @@ export default function Skills({ onUnlock }) {
 
         <motion.div initial={{ opacity:0, x:-20 }} animate={inView ? {opacity:1,x:0} : {}}
           className="flex items-center gap-3 mb-12">
-          <div className="w-8 h-px bg-[#22D3EE]" />
-          <span className="text-xs font-mono tracking-widest text-[#22D3EE88] uppercase">Skills</span>
+          <div className="w-8 h-px bg-[#F97316]" />
+          <span className="text-xs font-mono tracking-widest text-[#F9731688] uppercase">Skills</span>
         </motion.div>
 
         <motion.div initial={{ opacity:0, y:20 }} animate={inView ? {opacity:1,y:0} : {}}

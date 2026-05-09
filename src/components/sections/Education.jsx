@@ -26,8 +26,8 @@ export default function Education() {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           className="flex items-center gap-3 mb-12"
         >
-          <div className="w-8 h-px bg-[#FFB800]" />
-          <span className="text-xs font-mono tracking-widest text-[#FFB80088] uppercase">Education</span>
+          <div className="w-8 h-px bg-[#F97316]" />
+          <span className="text-xs font-mono tracking-widest text-[#F9731688] uppercase">Education</span>
         </motion.div>
 
         <motion.h2
