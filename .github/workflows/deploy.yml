@@ -3,9 +3,8 @@ name: Build & Deploy
 on:
   push:
     branches: [main]
-  schedule:
-    # Runs every hour — keeps resume in sync with Shiva1325/Resume repo
-    - cron: '0 * * * *'
+  repository_dispatch:
+    types: [resume-updated]
   workflow_dispatch:
 
 permissions:
