@@ -19,6 +19,15 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
+      - name: Sync latest resume from Resume repo
+        run: |
+          curl -L \
+            "https://github.com/Shiva1325/Resume/raw/main/resume.pdf" \
+            -o public/resume.pdf \
+            --fail \
+            && echo "Resume updated" \
+            || echo "Resume download failed — keeping existing"
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
