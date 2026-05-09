@@ -121,9 +121,21 @@ function TerminalReadout() {
 }
 
 // ── Hero ─────────────────────────────────────────────────────────
+function useResumeSyncTime() {
+  const [syncTime, setSyncTime] = useState(null)
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}resume-meta.json`)
+      .then(r => r.json())
+      .then(d => setSyncTime(new Date(d.synced)))
+      .catch(() => {})
+  }, [])
+  return syncTime
+}
+
 export default function Hero({ onUnlock }) {
   const nameRef = useRef(null)
   const { ref: inViewRef, inView } = useInView({ threshold: 0.3, triggerOnce: true })
+  const syncTime = useResumeSyncTime()
 
   useEffect(() => {
     if (!inView || !nameRef.current) return
@@ -200,12 +212,19 @@ export default function Hero({ onUnlock }) {
             data-hover>
             Explore My Work
           </button>
-          <a href={`${import.meta.env.BASE_URL}resume.pdf`}
-            download="Shiva_Patibandla_Resume.pdf"
-            className="px-7 py-3 rounded-full border border-[#F9731644] text-[#F97316] font-display font-semibold text-sm tracking-wide transition-all duration-200 hover:bg-[#F973160A] hover:border-[#F9731688]"
-            data-hover>
-            Download Resume
-          </a>
+          <div className="flex flex-col items-center gap-1">
+            <a href={`${import.meta.env.BASE_URL}resume.pdf`}
+              download="Shiva_Patibandla_Resume.pdf"
+              className="px-7 py-3 rounded-full border border-[#F9731644] text-[#F97316] font-display font-semibold text-sm tracking-wide transition-all duration-200 hover:bg-[#F973160A] hover:border-[#F9731688]"
+              data-hover>
+              Download Resume
+            </a>
+            {syncTime && (
+              <span className="text-[10px] font-mono text-white/20">
+                synced {syncTime.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} · {syncTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+              </span>
+            )}
+          </div>
         </motion.div>
       </div>
 
