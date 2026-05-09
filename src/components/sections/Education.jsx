@@ -5,7 +5,7 @@ import { PittLogo, ISMLogo } from '../ui/Logos'
 
 function UniversityLogo({ university }) {
   if (university.includes('Pittsburgh'))   return <div className="w-14 h-14 flex-shrink-0"><PittLogo /></div>
-  if (university.includes('Indian School') || university.includes('ISM') || university.includes('IIT'))
+  if (university.includes('IIT') || university.includes('ISM') || university.includes('Indian'))
     return <div className="w-14 h-14 flex-shrink-0"><ISMLogo /></div>
   const initials = university.split(/[\s()]+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()
   return (

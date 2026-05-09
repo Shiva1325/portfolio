@@ -22,7 +22,7 @@ export const education = [
     id: 2,
     degree: 'Bachelor of Technology',
     major: 'Computer Science & Engineering',
-    university: 'Indian School of Mines, Dhanbad',
+    university: 'Indian Institute of Technology (ISM) Dhanbad',
     logoDomain: 'iitism.ac.in',
     location: 'Dhanbad, India',
     duration: '2015 — 2019',

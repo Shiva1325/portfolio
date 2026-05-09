@@ -82,49 +82,6 @@ function TypewriterRole() {
   )
 }
 
-// ── Waving Avatar ────────────────────────────────────────────────
-function HeroAvatar() {
-  return (
-    <motion.div
-      className="relative w-28 h-28 mx-auto mb-4"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
-      transition={{
-        opacity: { duration: 0.6 },
-        scale:   { duration: 0.6 },
-        y:       { duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0.6 },
-      }}
-    >
-      {/* Pulsing outer glow */}
-      <motion.div
-        className="absolute -inset-4 rounded-full pointer-events-none"
-        animate={{ opacity: [0.25, 0.55, 0.25], scale: [1, 1.08, 1] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-        style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.4) 0%, transparent 70%)' }}
-      />
-      {/* Spinning ring */}
-      <motion.div
-        className="absolute inset-0 rounded-full"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-        style={{ background: 'conic-gradient(from 0deg, #F97316, #22D3EE, #00FF88, #F97316)', padding: 3, borderRadius: '50%' }}
-      />
-      <div className="absolute inset-[3px] rounded-full bg-[#050A0E]" />
-      {/* Photo */}
-      <div className="absolute inset-[3px] rounded-full overflow-hidden">
-        <img src={import.meta.env.BASE_URL + 'avatar.jpg'} alt="Shiva" className="w-full h-full object-cover" />
-      </div>
-      {/* Waving hand emoji */}
-      <div
-        className="absolute -bottom-1 -right-2 text-2xl select-none"
-        style={{ animation: 'wave-hand 1.5s ease-in-out infinite', transformOrigin: '70% 70%', display: 'inline-block' }}
-      >
-        👋
-      </div>
-    </motion.div>
-  )
-}
-
 // ── Terminal Decoration ──────────────────────────────────────────
 const terminalLines = [
   { cmd: 'sys.init()',         result: 'OK',   color: '#00FF88' },
@@ -205,11 +162,6 @@ export default function Hero({ onUnlock }) {
       <div className="absolute inset-0 z-[1] bg-gradient-radial from-transparent via-transparent to-[#050A0E]" />
 
       <div ref={inViewRef} className="relative z-[2] text-center px-6 max-w-4xl mx-auto">
-        {/* Waving profile photo */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
-          <HeroAvatar />
-        </motion.div>
-
         {/* Badge */}
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F973160A] border border-[#F9731633] mb-5">
