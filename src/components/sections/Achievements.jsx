@@ -16,8 +16,8 @@ export default function Achievements({ unlocked }) {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           className="flex items-center gap-3 mb-12"
         >
-          <div className="w-8 h-px bg-[#FFD700]" />
-          <span className="text-xs font-mono tracking-widest text-[#FFD70088] uppercase">Achievements</span>
+          <div className="w-8 h-px bg-[#F97316]" />
+          <span className="text-xs font-mono tracking-widest text-[#F9731688] uppercase">Achievements</span>
         </motion.div>
 
         <motion.h2

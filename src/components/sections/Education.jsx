@@ -45,7 +45,8 @@ export default function Education() {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.15, duration: 0.7 }}
-              className="glass rounded-2xl p-8 neon-border"
+              className="glass rounded-2xl p-8"
+              style={{ border: '1px solid rgba(255,184,0,0.18)', boxShadow: '0 0 24px rgba(255,184,0,0.05)' }}
             >
               {/* Header */}
               <div className="flex items-start gap-4 mb-6">

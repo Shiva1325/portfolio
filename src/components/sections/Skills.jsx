@@ -255,7 +255,7 @@ export default function Skills({ onUnlock }) {
                 </div>
               ))}
             </div>
-            <p className="text-[9px] font-mono text-white/20 tracking-[0.18em]">DRAG TO ROTATE</p>
+            <p className="text-[10px] font-mono text-white/35 tracking-[0.15em]">DRAG TO ROTATE</p>
           </div>
         </motion.div>
       </div>

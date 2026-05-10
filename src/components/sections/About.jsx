@@ -82,7 +82,7 @@ function ProfilePhoto() {
             background: 'linear-gradient(180deg, transparent, rgba(249,115,22,0.18), transparent)',
           }}
           animate={{ top: ['-40%', '140%'] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: 'linear', repeatDelay: 2 }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: 'linear', repeatDelay: 6 }}
         />
       </div>
 
@@ -154,7 +154,7 @@ export default function About() {
                 Over 4+ years across Goldman Sachs, Hexagon, and the University of Pittsburgh, I've shipped features used by thousands, led SSO integrations, built ETL pipelines, and obsessed over clean, maintainable code.
               </p>
               <p>
-                MS in Computer Science from University of Pittsburgh. IIT alumnus. When I'm not engineering, I'm exploring new tech or building side projects.
+                MS in Computer Science from University of Pittsburgh. IIT (ISM) Dhanbad alumnus. Outside of work: distributed systems papers, Go side projects, and the occasional Raft implementation.
               </p>
             </div>
 

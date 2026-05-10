@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const letters = 'SS'.split('')
+const letters = 'SP'.split('')
 const messages = ['LOADING MODULES', 'INIT ANIMATIONS', 'BOOTING EXPERIENCE']
 
 export default function LoadingScreen({ onComplete }) {

@@ -83,8 +83,8 @@ export default function Projects({ onUnlock }) {
       <div className="max-w-6xl mx-auto">
         <motion.div initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}}
           className="flex items-center gap-3 mb-12">
-          <div className="w-8 h-px bg-[#FF6B6B]" />
-          <span className="text-xs font-mono tracking-widest text-[#FF6B6B88] uppercase">Projects</span>
+          <div className="w-8 h-px bg-[#22D3EE]" />
+          <span className="text-xs font-mono tracking-widest text-[#22D3EE88] uppercase">Projects</span>
         </motion.div>
 
         <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -96,7 +96,7 @@ export default function Projects({ onUnlock }) {
           {projectCategories.map(cat => (
             <button key={cat} onClick={() => setActiveCategory(cat)}
               className={`px-4 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
-                activeCategory === cat ? 'bg-[#FF6B6B] text-white font-bold' : 'glass text-white/50 hover:text-white/80'
+                activeCategory === cat ? 'bg-[#22D3EE] text-[#050A0E] font-bold' : 'glass text-white/50 hover:text-white/80'
               }`} data-hover>
               {cat}
             </button>
