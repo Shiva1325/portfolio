@@ -52,7 +52,7 @@ function FloatingGeo({ position, color, speed = 1 }) {
 }
 
 // ── Role Typewriter ──────────────────────────────────────────────
-const roles = ['Software Engineer', 'Problem Solver', 'Code Architect', 'Full-Stack Builder']
+const roles = ['Software Engineer', 'Backend Systems Builder', 'Full-Stack Engineer', 'Distributed Systems Dev']
 
 function TypewriterRole() {
   const [roleIdx, setRoleIdx] = useState(0)
@@ -178,7 +178,7 @@ export default function Hero({ onUnlock }) {
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F973160A] border border-[#F9731633] mb-5">
           <span className="w-1.5 h-1.5 rounded-full bg-[#00FF88] animate-pulse" />
-          <span className="text-xs font-mono text-[#F9731688] tracking-widest">SOFTWARE ENGINEER @ GOLDMAN SACHS</span>
+          <span className="text-xs font-mono text-[#F97316CC] tracking-widest">SOFTWARE ENGINEER @ GOLDMAN SACHS</span>
         </motion.div>
 
         {/* Name */}
@@ -202,11 +202,11 @@ export default function Hero({ onUnlock }) {
 
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
           className="text-white/50 text-base md:text-lg max-w-lg mx-auto mb-10 leading-relaxed">
-          Software engineer at Goldman Sachs. 4+ years building enterprise systems — Java backends, React frontends, distributed systems, and cloud deployments.
+          Software engineer at Goldman Sachs, working on the distributed systems that financial infrastructure runs on. Four years in, and the part I still find most interesting is tracing a failure back to exactly where it started.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          className="flex flex-col sm:flex-row items-start justify-center gap-4">
           <button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             className="px-7 py-3 rounded-full bg-[#F97316] text-[#050A0E] font-display font-bold text-sm tracking-wide transition-all duration-200 hover:shadow-neon-cyan hover:scale-105 active:scale-95"
             data-hover>

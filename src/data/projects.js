@@ -9,7 +9,7 @@ export const projects = [
     live: 'https://sci-gso.netlify.app',
     featured: true,
     gradient: 'from-cyan-500 to-blue-600',
-    icon: '🌐',
+    icon: '⚛',
   },
   {
     id: 2,
@@ -19,9 +19,9 @@ export const projects = [
     category: 'Data',
     github: 'https://github.com/Shiva1325',
     live: '#',
-    featured: true,
-    gradient: 'from-slate-700 to-indigo-900',
-    icon: '🤖',
+    featured: false,
+    gradient: 'from-indigo-600 to-violet-700',
+    icon: '⎈',
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const projects = [
     live: '#',
     featured: false,
     gradient: 'from-green-500 to-emerald-600',
-    icon: '💬',
+    icon: '◎',
   },
 ]
 
