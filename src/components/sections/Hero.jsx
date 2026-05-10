@@ -206,7 +206,7 @@ export default function Hero({ onUnlock }) {
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          className="flex flex-col sm:flex-row items-start justify-center gap-4">
           <button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             className="px-7 py-3 rounded-full bg-[#F97316] text-[#050A0E] font-display font-bold text-sm tracking-wide transition-all duration-200 hover:shadow-neon-cyan hover:scale-105 active:scale-95"
             data-hover>
