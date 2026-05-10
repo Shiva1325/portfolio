@@ -154,7 +154,7 @@ export default function About() {
                 What I enjoy most isn't shipping features — it's the part before that. Tracing a fault through five services to find the one assumption that was quietly wrong for months. Identifying why a system behaved the way it did under load. At Goldman, that means working on systems where consistency, latency, and correctness all matter at once, with no slack in any of them.
               </p>
               <p>
-                Away from the screen: hiking is my reset button — Utah's been generous about that. I'll try any cuisine at least once. I play snooker, travel whenever I can, and occasionally get unreasonably invested in a video game.
+                Away from the screen: hiking is my reset button — Olympic National Park is still the benchmark. Thai and Japanese are the cuisines I keep coming back to, though I'll try anything once. I play snooker casually, travel whenever I can, and occasionally get unreasonably invested in a video game.
               </p>
             </div>
 
