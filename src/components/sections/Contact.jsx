@@ -202,7 +202,7 @@ export default function Contact({ onUnlock }) {
           className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <span className="text-xs font-mono text-white/20">
-            © 2026 Shiva Patibandla · Shiva built it. Claude had thoughts. Many thoughts.
+            © 2026 Shiva Patibandla &nbsp;·&nbsp; <span className="text-[#00FF88]/40">feat:</span> Shiva &nbsp;<span className="text-[#22D3EE]/40">fix:</span> Claude &nbsp;<span className="text-[#F97316]/40">revert:</span> also Claude
           </span>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
