@@ -19,8 +19,8 @@ export const projects = [
     category: 'Data',
     github: 'https://github.com/Shiva1325',
     live: '#',
-    featured: true,
-    gradient: 'from-slate-700 to-indigo-900',
+    featured: false,
+    gradient: 'from-indigo-600 to-violet-700',
     icon: '⎈',
   },
   {
