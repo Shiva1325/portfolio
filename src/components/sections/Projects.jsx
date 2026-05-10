@@ -95,7 +95,7 @@ export default function Projects({ onUnlock }) {
         <div className="flex flex-wrap gap-2 mb-10">
           {projectCategories.map(cat => (
             <button key={cat} onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
+              className={`px-4 py-2 min-h-[44px] rounded-full text-xs font-mono transition-all duration-200 ${
                 activeCategory === cat ? 'bg-[#22D3EE] text-[#050A0E] font-bold' : 'glass text-white/50 hover:text-white/80'
               }`} data-hover>
               {cat}

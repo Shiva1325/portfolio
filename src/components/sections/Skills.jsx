@@ -223,7 +223,7 @@ export default function Skills({ onUnlock }) {
           <div className="flex flex-wrap gap-2">
             {skillCategories.map(cat => (
               <button key={cat} onClick={() => setActive(cat)} data-hover
-                className="px-4 py-1.5 rounded-full text-xs font-mono transition-all duration-200"
+                className="px-4 py-2 min-h-[44px] rounded-full text-xs font-mono transition-all duration-200"
                 style={active === cat
                   ? { background: getColor(cat) || '#F97316', color: '#050A0E', fontWeight: 700 }
                   : { background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.45)',
