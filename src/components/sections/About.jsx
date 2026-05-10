@@ -144,17 +144,17 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.25 }}
           >
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
-              I build things that <span className="gradient-text">matter</span>
+              The engineer behind <span className="gradient-text">the code</span>
             </h2>
             <div className="space-y-4 text-white/60 text-base leading-relaxed">
               <p>
-                I'm Shiva Patibandla, a software engineer at Goldman Sachs building critical financial systems. I thrive across the full stack — Java and .NET backends, React and Angular frontends, distributed systems in Go.
+                I'm Shiva — originally from India, now at Goldman Sachs in Salt Lake City. The path here ran through IIT (ISM) Dhanbad and the University of Pittsburgh, and somewhere along the way I developed a genuine obsession with distributed systems: the more corners you look into, the more interesting it gets.
               </p>
               <p>
-                Over 4+ years across Goldman Sachs, Hexagon, and the University of Pittsburgh, I've shipped features used by thousands, led SSO integrations, built ETL pipelines, and obsessed over clean, maintainable code.
+                What I enjoy most isn't shipping features — it's the part before that. Tracing a fault through five services to find the one assumption that was quietly wrong for months. Identifying why a system behaved the way it did under load. At Goldman, that means working on systems where consistency, latency, and correctness all matter at once, with no slack in any of them.
               </p>
               <p>
-                MS in Computer Science from University of Pittsburgh. IIT (ISM) Dhanbad alumnus. Outside of work: distributed systems papers, Go side projects, and the occasional Raft implementation.
+                Away from the screen: hiking is my reset button — Utah's been generous about that. I'll try any cuisine at least once. I play snooker, travel whenever I can, and occasionally get unreasonably invested in a video game.
               </p>
             </div>
 
@@ -163,11 +163,11 @@ export default function About() {
                 <span className="text-[#22D3EE]">const</span>{' '}
                 <span className="text-[#F97316]">me</span> = {'{'}
                 {'\n  '}
-                <span className="text-[#00FF88]">name</span>: <span className="text-white/50">'Shiva Patibandla'</span>,
+                <span className="text-[#00FF88]">origin</span>: <span className="text-white/50">'India → Pittsburgh → Salt Lake City'</span>,
                 {'\n  '}
-                <span className="text-[#00FF88]">role</span>: <span className="text-white/50">'Software Engineer'</span>,
+                <span className="text-[#00FF88]">obsession</span>: <span className="text-white/50">'distributed systems & hard bugs'</span>,
                 {'\n  '}
-                <span className="text-[#00FF88]">location</span>: <span className="text-white/50">'Salt Lake City, UT'</span>
+                <span className="text-[#00FF88]">offline</span>: <span className="text-white/50">['hiking', 'snooker', 'new cuisines']</span>
                 {'\n}'}
               </pre>
             </div>
