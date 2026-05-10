@@ -148,7 +148,7 @@ export default function About() {
             </h2>
             <div className="space-y-4 text-white/60 text-base leading-relaxed">
               <p>
-                I'm Shiva — originally from India, now at Goldman Sachs in Salt Lake City. The path here ran through IIT (ISM) Dhanbad and the University of Pittsburgh, and somewhere along the way I developed a genuine obsession with distributed systems: the more corners you look into, the more interesting it gets.
+                I'm Shiva — originally from India, now at Goldman Sachs in Salt Lake City. The path ran through IIT (ISM) Dhanbad, a master's at Pittsburgh, a stop in Durham, and eventually here. Somewhere along the way I developed a genuine obsession with distributed systems: the more corners you look into, the more interesting it gets.
               </p>
               <p>
                 What I enjoy most isn't shipping features — it's the part before that. Tracing a fault through five services to find the one assumption that was quietly wrong for months. Identifying why a system behaved the way it did under load. At Goldman, that means working on systems where consistency, latency, and correctness all matter at once, with no slack in any of them.
@@ -163,7 +163,7 @@ export default function About() {
                 <span className="text-[#22D3EE]">const</span>{' '}
                 <span className="text-[#F97316]">me</span> = {'{'}
                 {'\n  '}
-                <span className="text-[#00FF88]">origin</span>: <span className="text-white/50">'India → Pittsburgh → Salt Lake City'</span>,
+                <span className="text-[#00FF88]">origin</span>: <span className="text-white/50">'India → Pittsburgh → Durham → SLC'</span>,
                 {'\n  '}
                 <span className="text-[#00FF88]">obsession</span>: <span className="text-white/50">'distributed systems & hard bugs'</span>,
                 {'\n  '}
