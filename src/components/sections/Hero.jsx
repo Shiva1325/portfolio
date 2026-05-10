@@ -202,7 +202,7 @@ export default function Hero({ onUnlock }) {
 
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
           className="text-white/50 text-base md:text-lg max-w-lg mx-auto mb-10 leading-relaxed">
-          Software engineer at Goldman Sachs. 4+ years building enterprise systems — Java backends, React frontends, distributed systems, and cloud deployments.
+          Software engineer at Goldman Sachs, working on the distributed systems that financial infrastructure runs on. Four years in, and the part I still find most interesting is tracing a failure back to exactly where it started.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4 }}
